@@ -1,3 +1,3 @@
-const API_BASE_URL = "https://chatappmern-a2yq.onrender.com";
+const API_BASE_URL = "https://chatappmern-kj1f.onrender.com";
 
 export default API_BASE_URL;

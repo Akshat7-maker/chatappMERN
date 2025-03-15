@@ -12,7 +12,7 @@ const httpServer = createServer(app);
 
 const io = new Server(httpServer, {
   cors: {
-    origin: ["http://localhost:8000", "https://chatappmern-a2yq.onrender.com"],
+    origin: ["http://localhost:8000", "https://chatappmern-kj1f.onrender.com"],
     credentials: true,
     allowedHeaders: ["Content-Type", "Authorization"],
   },
