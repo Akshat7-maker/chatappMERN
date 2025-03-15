@@ -4,6 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import API_BASE_URL from "../../configApi/ApiBaseUrl";
+import { Link } from "react-router-dom";
 
 export default function SignUp() {
   const [formData, setFormData] = useState({
@@ -140,9 +141,9 @@ export default function SignUp() {
 
         <p className="text-center text-gray-500 mt-4">
           Already have an account?{" "}
-          <a href="/login" className="text-indigo-600 font-semibold">
+          <Link href="/login" className="text-indigo-600 font-semibold">
             Log in
-          </a>
+          </Link>
         </p>
       </div>
     </div>
