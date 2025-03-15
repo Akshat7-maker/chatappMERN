@@ -30,7 +30,7 @@ function ChatList() {
 
           // once chats are fetched, join each chat room
           socket.emit("join-chats", { userId: loginUser._id, chatRooms: chats.map((chat) => chat._id) });
-          setJoinRoomLoding(true);
+          // setJoinRoomLoding(true);
           setMyChats(chats);
         });
       };
@@ -41,20 +41,22 @@ function ChatList() {
       }, [loginUser, chatListRefresh, socket]);
 
       // catch the success response once all rooms are joined
-      useEffect(() => {
-        if (!socket) return;
-        socket.on("join-chats-success", (s) => {
-          if (s === "success") {
-            setJoinRoomLoding(false);
-            // toast.success("All rooms joined successfully");
-          }
-        });
-      }, [socket]);
+      // useEffect(() => {
+      //   if (!socket) return;
+      //   socket.on("join-chats-success", (s) => {
+      //     if (s === "success") {
+      //       setJoinRoomLoding(false);
+      //       // toast.success("All rooms joined successfully");
+      //     }
+      //   });
+      // }, [socket]);
 
     //   if(error) return <div>{error}</div>
 
     if (!loginUser || !socket) return null
-    if (joinRoomLoding) return <div className="text-center text-red-400">Something went wrong</div>;
+
+    // causing delay in ui 
+    // if (joinRoomLoding) return <div className="text-center text-red-400">Something went wrong</div>;
     
     return (
       <div className="col-span-12 md:col-span-3 h-full rounded-xl bg-[#121212] p-4 border border-gray-700 shadow-md">
