@@ -2,6 +2,7 @@ import { createContext, useContext, useState, useEffect } from "react";
 import { useChatContext } from "./chatContext";
 import { io } from "socket.io-client";
 import toast from "react-hot-toast";
+import API_BASE_URL from "../configApi/ApiBaseUrl";
 
 const SocketContext = createContext();
 
@@ -13,7 +14,7 @@ const SocketProvider = ({ children }) => {
         // console.log("loginUserSocket", loginUser);
         // console.log("socketcontext", socket);
         if (loginUser) {
-           const socketConnect = io("http://localhost:8000",{
+           const socketConnect = io(`${API_BASE_URL}`,{
             withCredentials: true
            });
            

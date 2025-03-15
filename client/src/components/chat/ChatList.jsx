@@ -23,7 +23,7 @@ function ChatList() {
         await withLoder(async () => {
 
           let config = configAPI();
-          const { data } = await axios.get("http://localhost:8000/api/v1/chat/fetch", config);
+          const { data } = await axios.get(`${API_BASE_URL}/api/v1/chat/fetch`, config);
           const { data: chats } = data;
           // console.log("fetchChats", chats);
 
