@@ -3,6 +3,7 @@ import useLoder from "../../customHooks/loader";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import API_BASE_URL from "../../configApi/ApiBaseUrl";
 
 export default function SignUp() {
   const [formData, setFormData] = useState({
@@ -39,7 +40,7 @@ export default function SignUp() {
 
     withLoder(async () => {
       const { data } = await axios.post(
-        "http://localhost:8000/api/v1/user/register",
+        `${API_BASE_URL}/api/v1/user/register`,
         formDataToSend
       );
 

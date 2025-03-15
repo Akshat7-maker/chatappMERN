@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { FaSearch, FaTimes } from 'react-icons/fa';
 import { useSocketContext } from '../../context/socketContext';
 import toast from 'react-hot-toast';
+import API_BASE_URL from '../../configApi/ApiBaseUrl';
 
 
 function InfoAboutChat() {
@@ -27,7 +28,7 @@ function InfoAboutChat() {
         // console.log("remove member", memberId);
 
         const config = configAPI();
-        const { data } = await axios.post("http://localhost:8000/api/v1/chat/remove-member", { chatId: selectedChat._id, participantId: memberId }, config);
+        const { data } = await axios.post(`${API_BASE_URL}/api/v1/chat/remove-member`, { chatId: selectedChat._id, participantId: memberId }, config);
 
         const { data: response } = data;
         if (response) {
@@ -46,7 +47,7 @@ function InfoAboutChat() {
             console.log("leave group");
             // send leave group request
             const config = configAPI();
-            const { data } = await axios.post("http://localhost:8000/api/v1/chat/leave-group", { chatId: selectedChat._id }, config);
+            const { data } = await axios.post(`${API_BASE_URL}/api/v1/chat/leave-group`, { chatId: selectedChat._id }, config);
 
             const { data: response } = data;
             if (response) {
@@ -67,7 +68,7 @@ function InfoAboutChat() {
         } else {
             // send add member request
             const config = configAPI();
-            const { data } = await axios.post("http://localhost:8000/api/v1/chat/add-member", { chatId: selectedChat._id, participantId: member }, config);
+            const { data } = await axios.post(`${API_BASE_URL}/api/v1/chat/add-member`, { chatId: selectedChat._id, participantId: member }, config);
 
             const { data: response } = data;
             if (response) {

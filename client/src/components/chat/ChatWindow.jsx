@@ -11,6 +11,7 @@ import InfoAboutChat from './InfoAboutChat';
 import { format } from 'date-fns';
 import IsMessageText from './IsMessageText';
 import IsMessageFile from './IsMessageFile';
+import API_BASE_URL from '../../configApi/ApiBaseUrl';
 
 
 
@@ -61,7 +62,7 @@ function ChatWindow() {
     const config = configAPI();
 
     await fetchWithLoder(async () => {
-      const { data } = await axios.get(`http://localhost:8000/api/v1/message/all/${selectedChat._id}?page=${page}&limit=12`, config);
+      const { data } = await axios.get(`${API_BASE_URL}/api/v1/message/all/${selectedChat._id}?page=${page}&limit=12`, config);
       const { data: allMessagesResponse } = data;
       let fetchedMessages = allMessagesResponse.reverse()
       // console.log(fetchedMessages);
@@ -130,7 +131,7 @@ function ChatWindow() {
     socket.emit("stop-typing", { chatId: selectedChat._id, userId: loginUser._id });
     await sendWithLoder(async () => {
       setFilePreviewURL(null);
-      const { data } = await axios.post(`http://localhost:8000/api/v1/message/send/${selectedChat._id}`, formData, config);
+      const { data } = await axios.post(`${API_BASE_URL}/api/v1/message/send/${selectedChat._id}`, formData, config);
       const { data: messageResponse } = data;
 
       // console.log(messageResponse);

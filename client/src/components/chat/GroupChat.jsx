@@ -75,7 +75,7 @@ const GroupChat = () => {
     try {
       const config = configAPI();
       const { data } = await axios.post(
-        "http://localhost:8000/api/v1/chat/create-group",
+        `${API_BASE_URL}/api/v1/chat/create-group`,
         { groupName, groupParticipants: members.map((m) => m._id) },
         config
       );

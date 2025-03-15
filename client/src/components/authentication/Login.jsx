@@ -6,6 +6,7 @@ import { useChatContext } from "../../context/chatContext";
 import { useSocketContext } from "../../context/socketContext";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
+import API_BASE_URL from "../../configApi/ApiBaseUrl";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -28,7 +29,7 @@ export default function Login() {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:8000/api/v1/user/login",
+        `${API_BASE_URL}/api/v1/user/login`,
         { email, password }
       );
 

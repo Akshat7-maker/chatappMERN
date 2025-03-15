@@ -5,6 +5,7 @@ import { useChatContext } from "../context/chatContext";
 import configAPI from "../configApi/configAPI";
 import { useNavigate } from "react-router-dom";
 import { FaTimes, FaSearch } from "react-icons/fa";
+import API_BASE_URL from "../configApi/ApiBaseUrl";
 
 function SearchSideBar() {
   const [searchText, setSearchText] = useState("");
@@ -16,7 +17,7 @@ function SearchSideBar() {
   const handleSearch = async () => {
     await withLoder(async () => {
       const config = configAPI();
-      const { data } = await axios.get(`http://localhost:8000/api/v1/user/search?search=${searchText}`, config);
+      const { data } = await axios.get(`${API_BASE_URL}/api/v1/user/search?search=${searchText}`, config);
       const { data: users } = data;
       setUsers(users);
     });
@@ -24,7 +25,7 @@ function SearchSideBar() {
 
   const handleSelectUser = async (user) => {
     const config = configAPI();
-    const { data } = await axios.post(`http://localhost:8000/api/v1/chat/create`, { userId: user._id }, config);
+    const { data } = await axios.post(`${API_BASE_URL}/api/v1/chat/create`, { userId: user._id }, config);
     const { data: chat } = data;
 
     if (chat) {

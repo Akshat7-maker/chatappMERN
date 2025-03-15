@@ -7,6 +7,7 @@ import axios from "axios";
 import configAPI from "../configApi/configAPI";
 import toast from "react-hot-toast";
 import { format } from "date-fns";
+import API_BASE_URL from "../configApi/ApiBaseUrl";
 
 function Navbar() {
   const {
@@ -64,7 +65,7 @@ function Navbar() {
     try {
       const config = configAPI();
       const { data } = await axios.post(
-        "http://localhost:8000/api/v1/user/logout",
+        `${API_BASE_URL}/api/v1/user/logout`,
         {},
         config
       );
