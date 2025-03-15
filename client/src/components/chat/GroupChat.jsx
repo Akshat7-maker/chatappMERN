@@ -6,6 +6,7 @@ import configAPI from "../../configApi/configAPI";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { IoClose, IoPersonAdd, IoSearch } from "react-icons/io5";
+import API_BASE_URL from "../../configApi/ApiBaseUrl";
 
 const GroupChat = () => {
   const { openGroupModal, setOpenGroupModal, loginUser } = useChatContext();
