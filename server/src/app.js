@@ -12,7 +12,7 @@ const httpServer = createServer(app);
 
 const io = new Server(httpServer, {
     cors: { 
-        origin: "http://localhost:5173",
+        origin: "http://localhost:8000",
         credentials: true,
         allowedHeaders: ["Content-Type", "Authorization"], 
     }
@@ -113,7 +113,7 @@ io.on("connection", (socket) => {
 })
 app.use(cors({  
     // origin: process.env.CORS_ORIGIN,
-    origin: "http://localhost:5173",
+    origin: "http://localhost:8000",
     credentials: true,
     allowedHeaders: ["Content-Type", "Authorization"],
 }));
