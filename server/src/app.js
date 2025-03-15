@@ -107,7 +107,7 @@ io.on("connection", (socket) => {
 app.use(
   cors({
     // origin: process.env.CORS_ORIGIN,
-    origin: ["http://localhost:8000", "https://chatappmern-a2yq.onrender.com"],
+    origin: ["http://localhost:8000", "https://chatappmern-kj1f.onrender.com"],
     credentials: true,
     allowedHeaders: ["Content-Type", "Authorization"],
   })
